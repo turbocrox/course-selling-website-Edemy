@@ -1,0 +1,8 @@
+@font-face{
+    font-family: Outfit;
+    src: url("../src/assets/fonts/Outfit-Regular.ttf");
+}
+
+
+@import  "tailwindcss";
+
