@@ -5,7 +5,7 @@ export const Appcontext = createContext();
 
 // Context provider component
 export const AppcontextProvider = (props) => {
-    const value = {}; // currently no shared state or functions
+    const value = {}; 
 
     return (
         <Appcontext.Provider value={value}>
