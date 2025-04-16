@@ -15,7 +15,7 @@ import Educator from './pages/edu/Educator';
 
 function App() {
   return (
-    <div>  {/* Fixed extra space in opening div tag */}
+    <div>  {}
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/Course-list" element={<Courselist/>}/>
