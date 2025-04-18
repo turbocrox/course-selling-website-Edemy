@@ -11,11 +11,13 @@ import Educator from './pages/edu/Educator';
  import  Mycourse from  './pages/edu/Mycourse';
  import Dashborad from './pages/edu/Dashborad';
  import Studentsenrolled from './pages/edu/Studentsenrolled';
+import Navbar from './comp/stu/Navbar';
  
 
 function App() {
   return (
-    <div>  {}
+    <div className="Text-deafault min-h-screen bg-white">  
+    <Navbar/>
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/Course-list" element={<Courselist/>}/>
