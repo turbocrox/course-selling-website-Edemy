@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';  // Fixed spacing
+import { Route, Routes, useMatch } from 'react-router-dom';  // Fixed spacing
 import Home from './pages/stu/Home';
 import Courselist from './pages/stu/Courselist';
 import Coursedetail from './pages/stu/Coursedetail';
@@ -15,9 +15,10 @@ import Navbar from './comp/stu/Navbar';
  
 
 function App() {
+    const  isEducatorRoute = useMatch('/educator/*');
   return (
     <div className="Text-deafault min-h-screen bg-white">  
-    <Navbar/>
+    {!isEducatorRoute && <Navbar/>}
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/Course-list" element={<Courselist/>}/>
