@@ -1,9 +1,10 @@
 import React from 'react'
+import Hero from '../../comp/stu/Hero'
 
 const Home = () => {
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-      <h1 className="text-4xl font-bold text-blue-600">Home Page</h1>
+    <div className=' flex flex-col items-center space-y-7 text-center' >
+    <Hero/>
     </div>
   )
 }
