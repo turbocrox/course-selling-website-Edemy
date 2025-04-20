@@ -2,7 +2,11 @@ import React from 'react'
 
 const Courselist = () => {
   return (
-    <div>Courselist</div>
+    <div>
+
+
+ 
+</div>
   )
 }
 
