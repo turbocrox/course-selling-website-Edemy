@@ -1,8 +1,50 @@
-@font-face{
-    font-family: Outfit;
-    src: url("../src/assets/fonts/Outfit-Regular.ttf");
+
+@import "tailwindcss";
+@theme {
+  --font-size-course-details-heading-small: 26px;
+  --line-height-course-details-heading-small: 36px;
+
+  --font-size-course-details-heading-large: 36px;
+  --line-height-course-details-heading-large: 44px;
+
+  --font-size-home-heading-small:40px; /* Increased small heading size */
+  --line-height-home-heading-small: 40px; /* Adjusted line height */
+
+  --font-size-home-heading-large: 60px; /* Increased large heading size */
+  --line-height-home-heading-large: 64px; /* Adjusted line height */
+
+  --font-size-default: 15px;
+  --line-height-default: 21px;
 }
 
+@layer utilities {
+  .text-course-details-heading-small {
+    font-size: var(--font-size-course-details-heading-small);
+    line-height: var(--line-height-course-details-heading-small);
+  }
+  .text-course-details-heading-large {
+    font-size: var(--font-size-course-details-heading-large);
+    line-height: var(--line-height-course-details-heading-large);
+  }
+  .text-home-heading-small {
+    font-size: var(--font-size-home-heading-small); /* Using the updated custom property */
+    line-height: var(--line-height-home-heading-small); /* Using the updated custom property */
+  }
+  .text-home-heading-large {
+    font-size: var(--font-size-home-heading-large); /* Using the updated custom property */
+    line-height: var(--line-height-home-heading-large); /* Using the updated custom property */
+  }
+  .text-default {
+    font-size: var(--font-size-default);
+    line-height: var(--line-height-default);
+  }
+}
 
-@import  "tailwindcss";
-
+@layer utilities {
+    .overflow-wrap-break {
+      overflow-wrap: break-word;
+    }
+    .hyphens-auto {
+      hyphens: auto;
+    }
+  }
