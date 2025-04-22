@@ -1,11 +1,24 @@
-import { createContext } from "react";
+import { createContext, useEffect, useState } from "react";
+import { dummyCourses } from "../assets/assets";  // Fix: 'assets' not 'assests'
 
-// Creating the context object
 export const Appcontext = createContext();
 
-// Context provider component
 export const AppcontextProvider = (props) => {
-    const value = {}; 
+    const currency = import.meta.env.VITE_CURRENCY;  // Fix: Remove quotes
+    const [allCourses, setAllcourses] = useState([]);
+    
+    const fetchAllCourses = async () => {
+        setAllcourses(dummyCourses);
+    }
+
+    useEffect(() => {
+        fetchAllCourses();
+    }, []);
+
+    const value = {
+        currency,
+        allCourses  // Fix: match the case with state variable
+    }; 
 
     return (
         <Appcontext.Provider value={value}>
