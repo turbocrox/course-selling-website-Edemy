@@ -10,15 +10,19 @@ const Coursec = () => {
         <div className='py-16 md:px-40 px-8'>
             <h2 className='text-3xl font-medium text-gray'>Learn from the best</h2>
             <p className='text-sm md:text-base text-gray-500 mt-3'>
-                Discover our top-rated courses across various categories. From coding and design to business and wellness, our courses are crafted to deliver results.
+                Discover our top-rated courses across various categories. From coding and design to business <br></br>and wellness, our courses are crafted to deliver results.
             </p>
             <br/>
             
-            <div className="grid md:grid-cols-4 gap-6 my-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+
                 {allCourses?.slice(0, 4).map((course) => (
-                    <Coursecard key={course._id} course={course} />
+                    <Coursecard key={course._id}  course={course} />
                 ))}
             </div>
+            <br></br>
+            <br></br>
 
             <Link 
                 to='/Course-list' 
