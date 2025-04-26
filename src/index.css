@@ -1,5 +1,6 @@
 
 @import "tailwindcss";
+
 @theme {
   --font-size-course-details-heading-small: 26px;
   --line-height-course-details-heading-small: 36px;
