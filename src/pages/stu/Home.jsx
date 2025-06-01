@@ -4,6 +4,7 @@ import Companies from '../../comp/stu/Companies'
 import Coursec from '../../comp/stu/Coursec'
 import TestimonailsSection from '../../comp/stu/TestimonailsSection'
 import CallToAction from '../../comp/stu/CallToAction'
+import Footer from '../../comp/stu/Footer'
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
    <Coursec/>
    <TestimonailsSection/>
    <CallToAction/>
+   <Footer/>
   
 
     </div>
