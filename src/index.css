@@ -1,18 +1,17 @@
-
 @import "tailwindcss";
 
-@theme {
+:root {
   --font-size-course-details-heading-small: 26px;
   --line-height-course-details-heading-small: 36px;
 
   --font-size-course-details-heading-large: 36px;
   --line-height-course-details-heading-large: 44px;
 
-  --font-size-home-heading-small:40px; /* Increased small heading size */
-  --line-height-home-heading-small: 40px; /* Adjusted line height */
+  --font-size-home-heading-small: 40px;
+  --line-height-home-heading-small: 40px;
 
-  --font-size-home-heading-large: 60px; /* Increased large heading size */
-  --line-height-home-heading-large: 64px; /* Adjusted line height */
+  --font-size-home-heading-large: 60px;
+  --line-height-home-heading-large: 64px;
 
   --font-size-default: 15px;
   --line-height-default: 21px;
@@ -28,31 +27,31 @@
     line-height: var(--line-height-course-details-heading-large);
   }
   .text-home-heading-small {
-    font-size: var(--font-size-home-heading-small); /* Using the updated custom property */
-    line-height: var(--line-height-home-heading-small); /* Using the updated custom property */
+    font-size: var(--font-size-home-heading-small);
+    line-height: var(--line-height-home-heading-small);
   }
   .text-home-heading-large {
-    font-size: var(--font-size-home-heading-large); /* Using the updated custom property */
-    line-height: var(--line-height-home-heading-large); /* Using the updated custom property */
+    font-size: var(--font-size-home-heading-large);
+    line-height: var(--line-height-home-heading-large);
   }
   .text-default {
     font-size: var(--font-size-default);
     line-height: var(--line-height-default);
   }
+
+  .overflow-wrap-break {
+    overflow-wrap: break-word;
+  }
+  .hyphens-auto {
+    hyphens: auto;
+  }
+  .section-height {
+    height: 500px;
+  }
 }
 
-@layer utilities {
-    .overflow-wrap-break {
-      overflow-wrap: break-word;
-    }
-    .hyphens-auto {
-      hyphens: auto;
-    }
+@layer components {
+  .grid-auto-fit {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
-  @layer components {
-    .grid-auto-fit {
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    }
-  }
-
- 
+}
