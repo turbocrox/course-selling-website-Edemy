@@ -7,7 +7,7 @@ import humanizeDuration from 'humanize-duration';
 const Coursedetail = () => {
   const { id } = useParams();
   // eslint-disable-next-line no-unused-vars
-  const { allCourses, calculateRating, calculateCourseDuration, calculateChapterTime } = useContext(Appcontext);
+  const { allCourses, calculateRating, calculateCourseDuration, calculateChapterTime,currency } = useContext(Appcontext);
   const [courseData, setCourse] = useState({});
   const [expandedChapters, setExpandedChapters] = useState({});
 
@@ -29,8 +29,8 @@ const Coursedetail = () => {
 
   return (
     <div className="flex md:flex-row flex-col-reverse gap-10 relative items-start justify-between md:px-36 px-8 md:pt-30 pt-20 text-left">
-      <div className="absolute top-0 left-0 w-full h-96 -z-1 bg-gradient-to-b from-cyan-100/70"></div>
-      <div>
+      <div className="absolute top-0 left-0 md:w-1/2 w-full h-96 -z-1 bg-gradient-to-b from-cyan-100/70"></div>
+      <div className='md:w-1/2 w-full z-10'> {/*left side*/}
         {courseData?.courseTitle ? (
           <div className="max-w-xl z-10 text-gray-500">
             <h1 className="md:text-course-detail-heading-large text-course-details-heading-small font-semibold text-gray-800">{courseData.courseTitle}</h1>
@@ -92,8 +92,26 @@ const Coursedetail = () => {
             ))}
           </div>
         </div>
+     <div className='py-20 text-sm md:text-default'>
+       <h3  className='text-xl font-semibold text-gray-800'>Course Description</h3>
+        <p  className="pt-3 rich-text" dangerouslySetInnerHTML={{ __html: courseData.courseDescription }}></p>
+        
+     </div>
 
-
+      </div>
+       <div className=" z-10 max-w-course-card shadow-custom-card rounded-t md:rounded-none overflow-hidden bg-white min-w-[360px] sm:min-w-[420px]">
+        {/* Right side placeholder for additional content */}
+        <img src={courseData.courseThumbnail} alt="" />
+        <div className='p-5'>
+          <div className='flex items-center gap-2'>
+            <img className='w-3.5' src={assets.time_clock_icon} alt="time left " />
+            <p className='text-red-500'><span className='font font-medium'>5 days</span>left at this price</p>
+          </div>
+           <div>
+            <p> {currency}{(courseData.coursePrice - courseData.discount*courseData.coursePrice/100).toFixed(2)}</p>
+            
+           </div>
+        </div>
       </div>
     </div>
   );
