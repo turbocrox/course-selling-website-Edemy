@@ -32,6 +32,9 @@ export const AppcontextProvider = (props) => {
     };
 
     const calculateCourseDuration = (course) => {
+        if (!course || !course.courseContent || !Array.isArray(course.courseContent)) {
+            return "0h 0m";
+        }
         const time = course.courseContent.reduce((acc, chapter) => {
             return acc + chapter.chapterContent.reduce((acc2, lecture) => acc2 + lecture.lectureDuration, 0);
         }, 0);
@@ -40,6 +43,9 @@ export const AppcontextProvider = (props) => {
 
     const calculateNoOfLectures = (course) => {
         let totalLectures = 0;
+        if (!course.courseContent || !Array.isArray(course.courseContent)) {
+            return totalLectures;
+        }
         course.courseContent.forEach((chapter) => {
             if (Array.isArray(chapter.chapterContent)) {
                 totalLectures += chapter.chapterContent.length;
