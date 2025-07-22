@@ -4,6 +4,7 @@ import { Appcontext } from '../../context/Appcontext';
 import { assets } from '../../assets/assets'; // Fix: 'assets' not 'assests'
 import humanizeDuration from 'humanize-duration';
 import Footer from '../../comp/stu/Footer';
+import  YouTube from 'react-youtube'; // Ensure you have this package installed
 
 const Coursedetail = () => {
   const { id } = useParams();
@@ -12,6 +13,7 @@ const Coursedetail = () => {
   const [courseData, setCourse] = useState({});
   const [expandedChapters, setExpandedChapters] = useState({});
     const [isAlreadyEnrolled, setIsAlreadyEnrolled] = useState(true);
+      const [playerData,setplayerData] = useState(null);
 
   useEffect(() => {
     if (allCourses?.length) {
@@ -81,7 +83,9 @@ const Coursedetail = () => {
                           <div className='flex item-center justify-between w-full text-gray-800 text-xs md:text-default'>
                             <p>{lecture.lectureTitle}</p>
                             <div className='flex gap-2'>
-                              {lecture.isPreviewFree && <p className='text-blue-500 cursor-pointer'>preview</p>}
+                              {lecture.isPreviewFree && <p  
+                              onClick={()=> setplayerData({videoId:lecture.lectureUrl.split('/').pop()})}  
+                               className='text-blue-500 cursor-pointer'>preview</p>}
                               <p>{humanizeDuration(lecture.lectureDuration * 60 * 1000, { units: ['h', 'm'] })}</p>
                             </div>
                           </div>
@@ -103,10 +107,23 @@ const Coursedetail = () => {
       </div>
        <div className=" z-10 max-w-course-card shadow-custom-card rounded-t md:rounded-none overflow-hidden bg-white min-w-[360px] sm:min-w-[420px]">
         {/* Right side placeholder for additional content */}
+         {
+              playerData ?
+              <YouTube videoId={playerData.videoId} opts={{playerVars :{autoplay :1 }}} iframeClassName='w-full aspect-video'/>
+               
+              :  <img className='w-3.5' src={assets.time_clock_icon} alt="time left clock  icon  " />
+           
+
+            }
         <img src={courseData.courseThumbnail} alt="" />
         <div className='p-5'>
           <div className='flex items-center gap-2'>
-            <img className='w-3.5' src={assets.time_clock_icon} alt="time left " />
+
+             <img className='w-3.5' src={assets.time_clock_icon} alt="time left clock  icon  " />
+           
+
+            
+
             <p className='text-red-500'><span className='font font-medium'>5 days</span>left at this price</p>
           </div>
            <div  className='flex gap-3  items-center pt-2'>
