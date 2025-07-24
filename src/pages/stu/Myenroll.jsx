@@ -6,7 +6,8 @@ import { assets } from '../../assets/assets'
 const Myenroll = () => {
 
    const  {enrolledCourses,calculateCourseDuration} =  useContext(Appcontext)
-
+   
+     
   return (
    <>
    <div className='md:px-36 px-8 pt-10'>
